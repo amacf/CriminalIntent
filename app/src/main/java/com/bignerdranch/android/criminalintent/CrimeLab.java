@@ -75,7 +75,7 @@ public class CrimeLab {
         }
     }
 
-    public File getPhotoFile(Crime crime) {
+    public File[] getPhotoFiles(Crime crime) {
         File externalFilesDir = mContext
                 .getExternalFilesDir(Environment.DIRECTORY_PICTURES);
 
@@ -83,7 +83,12 @@ public class CrimeLab {
             return null;
         }
 
-        return new File(externalFilesDir, crime.getPhotoFilename());
+        File[] files = new File[4];
+        String[] fileNames = crime.getPhotoFilenames();
+        for(int i=0;i<4;i++)
+            files[i] = new File(externalFilesDir, fileNames[i]);
+
+        return files;
     }
 
     public void updateCrime(Crime crime) {

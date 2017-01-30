@@ -3,7 +3,7 @@ package com.bignerdranch.android.criminalintent;
 import java.util.Date;
 import java.util.UUID;
 
-public class Crime {
+public class    Crime {
 
     private UUID mId;
     private String mTitle;
@@ -55,7 +55,10 @@ public class Crime {
         mSuspect = suspect;
     }
 
-    public String getPhotoFilename() {
-        return "IMG_" + getId().toString() + ".jpg";
+    public String[] getPhotoFilenames() {
+        String[] names = new String[4];
+        for(int i=0;i<4;i++)
+            names[i] = "IMG_" + getId().toString() + i + ".jpg";
+        return names;
     }
 }
