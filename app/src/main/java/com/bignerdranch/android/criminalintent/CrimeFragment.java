@@ -27,6 +27,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+
+import com.google.android.gms.vision.CameraSource;
+import com.google.android.gms.vision.MultiProcessor;
+import com.google.android.gms.vision.face.Face;
+import com.google.android.gms.vision.face.FaceDetector;
+
 import java.io.File;
 import java.util.Date;
 import java.util.UUID;
@@ -167,12 +173,14 @@ public class CrimeFragment extends Fragment {
         mPhotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent captureImage = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                Uri uri = FileProvider.getUriForFile(getActivity(),
-                        BuildConfig.APPLICATION_ID + ".provider",
-                        mPhotoFiles[numPhoto]);
-                captureImage.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-                startActivityForResult(captureImage, REQUEST_PHOTO);
+//                Intent captureImage = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                Uri uri = FileProvider.getUriForFile(getActivity(),
+//                        BuildConfig.APPLICATION_ID + ".provider",
+//                        mPhotoFiles[numPhoto]);
+//                captureImage.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+//                startActivityForResult(captureImage, REQUEST_PHOTO);
+                Intent photoTaker = new Intent(getActivity(),FaceTrackerActivity.class);
+                startActivity(photoTaker);
             }
         });
 
