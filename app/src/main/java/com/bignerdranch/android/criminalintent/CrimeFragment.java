@@ -69,6 +69,8 @@ public class CrimeFragment extends Fragment {
         mPhotoFiles = CrimeLab.get(getActivity()).getPhotoFiles(mCrime);
     }
 
+
+    // Update
     @Override
     public void onPause() {
         super.onPause();
